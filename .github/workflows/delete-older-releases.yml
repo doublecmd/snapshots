@@ -1,0 +1,19 @@
+name: Delete Old Releases
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  delete_old_releases:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete Older Releases
+        uses: jay2610/delete-older-releases@1.4.0
+        with:
+          keep_latest: 30
+          delete_tags: true
+          repo: doublecmd/snapshots
+        env:
+          GITHUB_TOKEN: ${{ secrets.SNAPSHOTS }}
