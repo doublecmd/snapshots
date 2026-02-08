@@ -1,0 +1,2 @@
+# Snapshots
+Double Commander Snapshots
